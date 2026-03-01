@@ -9,10 +9,13 @@ import Product from './Pages/Product'
 import Login from './Pages/Login'
 import Orders from './Pages/Orders'
 import PlaceOrder from './Pages/PlaceOrder'
+import Navbar from './Components/Navbar'
+
 
 const App = () => {
   return (
-    <div className='text-3xl' >
+    <div className='px-4 sm: px-[5vw] md: px-[7vw] lg:px-[9vw]' >
+      <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/collection' element={<Collection/>}/>
@@ -22,7 +25,7 @@ const App = () => {
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/orders' element={<Orders/>}/>
-        <Route path='/place-order' element={<PlaceOrder/>}/>
+        <Route path='/place-order' element={<PlaceOrder/>}/> 
       </Routes>
     </div>
   )
