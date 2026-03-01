@@ -1,0 +1,32 @@
+import React from 'react'
+import {Routes,Route} from 'react-router-dom'
+import Home from './Pages/Home'
+import Collection from './Pages/Collection'
+import About from './Pages/About'
+import Contact from './Pages/Contact'
+import Cart from './Pages/Cart'
+import Product from './Pages/Product'
+import Login from './Pages/Login'
+import Orders from './Pages/Orders'
+import PlaceOrder from './Pages/PlaceOrder'
+
+const App = () => {
+  return (
+    <div className='text-3xl' >
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/collection' element={<Collection/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/product/:productId' element={<Product/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/orders' element={<Orders/>}/>
+        <Route path='/place-order' element={<PlaceOrder/>}/>
+      </Routes>
+    </div>
+  )
+}
+
+export default App
+
