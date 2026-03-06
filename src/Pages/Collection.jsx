@@ -6,12 +6,13 @@ import ProductItem from '../Components/ProductItem'
 
 const Collection = () => {
 
-  const { products } = useContext(ShopContext)
+  const { products, search , showSearch} = useContext(ShopContext)
 
   const [showFilter, setShowFilter] = useState(false)
   const [category, setCategory] = useState([])
   const [subCategory, setSubCategory] = useState([])
   const [sortType, setSortType] = useState("relevant")
+
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -32,6 +33,10 @@ const Collection = () => {
   const filterProducts = useMemo(() => {
 
     let productsCopy = [...products]
+
+    if(search){
+      productsCopy=productsCopy.filter(item=>item.name.toLowerCase().replace(/-/g, "").includes(search.toLowerCase()))
+    }
 
     if (category.length > 0) {
       productsCopy = productsCopy.filter(item =>
@@ -55,7 +60,7 @@ const Collection = () => {
 
     return productsCopy
 
-    },[products, category, subCategory,sortType])
+    },[products, category, subCategory,sortType,showSearch,search])
 
   
 
