@@ -6,7 +6,7 @@ import CartTotal from '../Components/CartTotal'
 
 const Cart = () => {
 
-  const { products, currency, cartItems,updateQuantity } = useContext(ShopContext)
+  const { products, currency, cartItems,updateQuantity,navigate } = useContext(ShopContext)
 
   const cartData = []
 
@@ -21,6 +21,27 @@ const Cart = () => {
       }
     }
   }
+
+  if (cartData.length === 0) {
+  return (
+    <div className="border-t pt-14 text-center">
+
+      <div className="text-2xl mb-6">
+        <Title text1={'YOUR'} text2={'CART'} />
+      </div>
+
+      <p className="text-gray-500 text-lg">Your cart is empty.</p>
+
+      <button
+        onClick={() => navigate('/collection')}
+        className="mt-6 bg-black text-white px-6 py-2 text-sm cursor-pointer"
+      >
+        Continue Shopping
+      </button>
+
+    </div>
+  )
+}
 
   return (
     <div className='border-t pt-14'>
@@ -81,6 +102,9 @@ const Cart = () => {
       <div className='flex justify-end my-20'>
         <div className='w-full sm:w-[450px]'>
           <CartTotal/>
+          <div className='w-full text-end'>
+            <button onClick={()=>navigate('/place-order')}className='bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer'>Proceed To Checkout</button>
+          </div>
         </div>
       </div>
 

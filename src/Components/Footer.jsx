@@ -7,7 +7,7 @@ const Footer = () => {
 
       <div className="text-center mb-6">
         <img
-          src={assets.logo}
+          src={assets.flex_fit_logo}
           alt="FlexFit Logo"
           className="w-28 mx-auto mb-3"
         />
